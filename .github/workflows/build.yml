@@ -124,13 +124,13 @@ jobs:
     - name: Setup WSL2
       uses: Vampire/setup-wsl@v5
       with:
-        distribution: Ubuntu-24.04
+        distribution: Debian
 
     - name: Setup SSH Server
       shell: wsl-bash {0}
       run: |
         apt-get update && apt-get upgrade -y
-        apt-get install -y podman
+        apt-get install -y podman ca-certificates
         podman build -t renci-ssh-tests-server-image -f test/Renci.SshNet.IntegrationTests/Dockerfile test/Renci.SshNet.IntegrationTests/
         podman run --rm -h renci-ssh-tests-server -d -p 2222:22 renci-ssh-tests-server-image
 
