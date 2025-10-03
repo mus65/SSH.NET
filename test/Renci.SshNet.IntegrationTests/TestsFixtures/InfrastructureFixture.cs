@@ -43,7 +43,7 @@ namespace Renci.SshNet.IntegrationTests.TestsFixtures
             if (Environment.GetEnvironmentVariable("CI") == "true")
             {
                 SshServerPort = 2222;
-                SshServerHostName = "localhost";
+                SshServerHostName = "127.0.0.1";
                 await Task.Delay(1_000);
                 return;
             }
