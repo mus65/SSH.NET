@@ -30,6 +30,13 @@ namespace System
                 return text.IndexOf(value.ToString(), comparisonType);
             }
 #endif
+
+#if !NET11_0_OR_GREATER
+            public int LastIndexOf(char value, StringComparison comparisonType)
+            {
+                return text.LastIndexOf(value.ToString(), comparisonType);
+            }
+#endif
         }
     }
 }

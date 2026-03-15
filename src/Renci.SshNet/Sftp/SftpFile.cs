@@ -38,7 +38,7 @@ namespace Renci.SshNet.Sftp
 
             _sftpSession = sftpSession;
             Attributes = attributes;
-            Name = fullName.Substring(fullName.LastIndexOf('/') + 1);
+            Name = fullName.Substring(fullName.LastIndexOf('/', StringComparison.Ordinal) + 1);
             FullName = fullName;
         }
 
@@ -491,7 +491,7 @@ namespace Renci.SshNet.Sftp
 
             var fullPath = _sftpSession.GetCanonicalPath(destFileName);
 
-            Name = fullPath.Substring(fullPath.LastIndexOf('/') + 1);
+            Name = fullPath.Substring(fullPath.LastIndexOf('/', StringComparison.Ordinal) + 1);
 
             FullName = fullPath;
         }

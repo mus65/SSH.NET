@@ -42,7 +42,7 @@ namespace Renci.SshNet.Common
 
             var posixPath = new PosixPath();
 
-            var pathEnd = path.LastIndexOf('/');
+            var pathEnd = path.LastIndexOf('/', StringComparison.Ordinal);
             if (pathEnd == -1)
             {
                 if (path.Length == 0)
@@ -94,7 +94,7 @@ namespace Renci.SshNet.Common
         {
             ArgumentNullException.ThrowIfNull(path);
 
-            var pathEnd = path.LastIndexOf('/');
+            var pathEnd = path.LastIndexOf('/', StringComparison.Ordinal);
             if (pathEnd == -1)
             {
                 return path;
@@ -121,7 +121,7 @@ namespace Renci.SshNet.Common
         {
             ArgumentNullException.ThrowIfNull(path);
 
-            var pathEnd = path.LastIndexOf('/');
+            var pathEnd = path.LastIndexOf('/', StringComparison.Ordinal);
             if (pathEnd == -1)
             {
                 return ".";
